@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}KazemiCars{% endblock %}</title>
+        {% block stylesheets %}
+          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"><link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+          <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/KZC.png') }}" />
+
+
+    </head>
+    <body>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Kazemicars</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{{ 'home' }}">Home</a></li>
+            <li><a href="{{'about'}}">A propos</a></li>
+            <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
+            <li><a href="{{'evaluate'}}">Evaluez votre voiture</a></li>
+            <li><a href="{{'contact'}}">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{'register'}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="{{'login'}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid img_header" >
+
+        <img src="{{ asset('img/KZC.png') }}" class="img-responsive center-block">
+      </div>
+
+        {% block body %}
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+
+
+      <!--footer start from here-->
+
+
+      <div class="copyright">
+          <div class="container">
+              <div class="col-md-6">
+                  <p>© 2017 - KazemiCars by Killian Kaeses</p>
+              </div>
+              <div class="col-md-6">
+                  <ul class="bottom_ul">
+                      <li><a href="#" class="fa fa-facebook-square fa-2"></a></li>
+                      <li><a href="#" class="fa fa-twitter-square"></a></li>
+                      <li><a href="#" class="fa fa-instagram"></a></li>
+
+                  </ul>
+              </div>
+          </div>
+      </div>
+    </body>
+</html>

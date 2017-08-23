@@ -1,0 +1,4 @@
+services:
+#    kzc.example:
+#        class: KZC\KZCBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

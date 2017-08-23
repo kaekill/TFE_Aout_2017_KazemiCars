@@ -1,0 +1,65 @@
+{%extends "::base.html.twig"%}
+
+{% block body %}
+    <div class="container" style="padding-top: 20px; padding-bottom: 50px;">
+        <div class="row">
+            <div class="col-md-8 ">
+                <div class="well well-sm">
+                    <form class="form-horizontal" action="" method="post">
+                        <fieldset>
+                            <legend class="text-center">Contacter nous</legend>
+
+                            <!-- Name input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="name">Nom</label>
+                                <div class="col-md-9">
+                                    <input id="name" name="name" type="text" placeholder="Votre nom" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Email input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="email"> Mail</label>
+                                <div class="col-md-9">
+                                    <input id="email" name="email" type="text" placeholder="Votre mail" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Message body -->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="message">Votre message</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" id="message" name="message" placeholder="Entrez votre message ici" rows="5"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Form actions -->
+                            <div class="form-group">
+                                <div class="col-md-12 text-right">
+                                    <button type="submit" class="btn btn-primary btn-lg">Envoyez</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <form>
+                    <legend><span class="glyphicon glyphicon-globe"></span> Notre adresse</legend>
+                    <address>
+                        <strong>KazemiCars</strong><br>
+                        Chaussée de Bruxelles, 16<br>
+                        1300 - Wavre<br>
+
+                            Tél:
+                        0484020000
+                    </address>
+                    <address>
+                        <strong>Joel Kazemi</strong><br>
+                        <a href="mailto:#">contact@kazemicars.be</a>
+                    </address>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

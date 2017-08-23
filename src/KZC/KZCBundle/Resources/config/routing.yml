@@ -1,0 +1,23 @@
+kzc_homepage:
+    path:     /
+    defaults: { _controller: KZCBundle:Home:index}
+
+kzc_about:
+    path: /about
+    defaults: {_controller: KZCBundle:About:index}
+
+kzc_list_voitures:
+    path: /list_voitures
+    defaults: {_controller: KZCBundle:List:index}
+
+kzc_contact:
+    path: /contact
+    defaults: {_controller: KZCBundle:Contact:index}
+
+kzc_evaluate:
+    path: /evaluate
+    defaults: {_controller: KZCBundle:Evaluate:index}
+
+kzc_homepage2:
+    path: /home
+    defaults: {_controller: KZCBundle:Home:index}

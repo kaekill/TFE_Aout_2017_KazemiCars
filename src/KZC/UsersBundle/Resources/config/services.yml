@@ -1,0 +1,9 @@
+services:
+    # user.security.authentication_handler: 
+    #     class: KZC\UsersBundle\Form\Handler\AuthenticationHandler 
+    #     public: false 
+    #     arguments: {"@router", "@session",'@service_container'}
+    app.form.registration:
+            class: KZC\UsersBundle\Form\RegistrationType
+            tags:
+                 - { name: form.type, alias: app_user_registration }
