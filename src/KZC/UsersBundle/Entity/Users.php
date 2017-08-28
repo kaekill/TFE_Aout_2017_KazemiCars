@@ -42,11 +42,23 @@ class Users extends BaseUser
      */
     protected $LastName;
 
+    protected $plainPassword;
+
+
     /**
      * @ORM\Column(name="Adress",type="string", length=255)
      * @Assert\NotBlank(message="Veuillez rentrer une adresse", groups={"Registration", "Profil"})
      */
+
+
     protected $Adress;
+
+    /**
+     * @ORM\Column(name="Ville",type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez rentrer une ville", groups={"Registration", "Profil"})
+     */
+
+    protected $Ville;
 
     /**
      * @ORM\Column(name="Number",type="integer", length=255)
@@ -121,6 +133,24 @@ class Users extends BaseUser
     }
 
     /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
+
+
+    /**
      * Set adress
      *
      * @param string $adress
@@ -143,6 +173,25 @@ class Users extends BaseUser
     {
         return $this->Adress;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getVille()
+    {
+        return $this->Ville;
+    }
+
+    /**
+     * @param mixed $Ville
+     */
+    public function setVille($Ville)
+    {
+        $this->Ville = $Ville;
+    }
+
+
+
 
     /**
      * Set number

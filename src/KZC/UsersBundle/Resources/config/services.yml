@@ -4,6 +4,6 @@ services:
     #     public: false 
     #     arguments: {"@router", "@session",'@service_container'}
     app.form.registration:
-            class: KZC\UsersBundle\Form\RegistrationType
+            class: KZC\UsersBundle\Form\UsersType
             tags:
                  - { name: form.type, alias: app_user_registration }

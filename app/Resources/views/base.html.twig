@@ -14,20 +14,51 @@
     <body>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Kazemicars</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{{ 'home' }}">Home</a></li>
-            <li><a href="{{'about'}}">A propos</a></li>
-            <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
-            <li><a href="{{'evaluate'}}">Evaluez votre voiture</a></li>
-            <li><a href="{{'contact'}}">Contact</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{'register'}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="{{'login'}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Kazemicars</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ 'home' }}">Home</a></li>
+                    <li><a href="{{'about'}}">A propos</a></li>
+                    <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
+                    <li><a href="{{'admin'}}">Dashboard</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="color: white;"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+                    <li><a href="{{path('fos_user_security_logout')}}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+            {% elseif app.user %}
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Kazemicars</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ 'home' }}">Home</a></li>
+                    <li><a href="{{'about'}}">A propos</a></li>
+                    <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
+                    <li><a href="{{'evaluate'}}">Evaluez votre voiture</a></li>
+                    <li><a href="{{'contact'}}">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="color: white;"><span class="glyphicon glyphicon-user"></span> {{ app.user.Username }}</a></li>
+                    <li><a href="{{path('fos_user_security_logout')}}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+            {% else %}
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Kazemicars</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ 'home' }}">Home</a></li>
+                    <li><a href="{{'about'}}">A propos</a></li>
+                    <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
+                    <li><a href="{{'contact'}}">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{'register'}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="{{'login'}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            {% endif %}
         </div>
       </nav>
       <div class="container-fluid img_header" >

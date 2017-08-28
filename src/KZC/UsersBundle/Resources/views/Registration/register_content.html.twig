@@ -1,10 +1,121 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
-    </div>
+{{ form_start(registration_form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
+        <div class="container" style="margin-top:30px">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3 class="panel-title"><strong>Sign in </strong></h3>
+                    </div>
 
-{{ form_end(form) }}
+                    <div class="panel-body">
+                        <form method="post" action="{{ path('fos_user_registration_register') }}">
+                            {{ form_row(registration_form._token) }}
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.Username, {'attr':{'class':'form-control placeholder-no-fix', 'placeholder':'Username'}}) }}
+                                        {% for errorItem in registration_form.Username.vars.errors %}
+                                        <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.FirstName, {'attr':{'class':'form-control', 'placeholder':'FirstName'}}) }}
+                                        {% for errorItem in registration_form.FirstName.vars.errors %}
+                                            <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.LastName, {'attr':{'class':'form-control', 'placeholder':'LastName'}}) }}
+                                        {% for errorItem in registration_form.LastName.vars.errors %}
+                                            <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.email, {'attr':{'class':'form-control', 'placeholder':'Email'}}) }}
+                                        {% for errorItem in registration_form.email.vars.errors %}
+                                            <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.Password, {'attr':{'class':'form-control', 'placeholder':'Password'}}) }}
+                                        {% for errorItem in registration_form.Password.vars.errors %}
+                                            <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.plainPassword, {'attr':{'class':'form-control', 'placeholder':'Repeat Password'}}) }}
+                                        {% for errorItem in registration_form.plainPassword.vars.errors %}
+                                            <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.Adress, {'attr':{'class':'form-control', 'placeholder':'Adresse'}}) }}
+                                        {% for errorItem in registration_form.Adress.vars.errors %}
+                                            <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.Number, {'attr':{'class':'form-control', 'placeholder':'N°'}}) }}
+                                        {% for errorItem in registration_form.Number.vars.errors %}
+                                            <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.Ville, {'attr':{'class':'form-control', 'placeholder':'Ville'}}) }}
+                                        {% for errorItem in registration_form.Ville.vars.errors %}
+                                            <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.CP, {'attr':{'class':'form-control', 'placeholder':'CP'}}) }}
+                                        {% for errorItem in registration_form.CP.vars.errors %}
+                                            <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        {{ form_widget(registration_form.Phone, {'attr':{'class':'form-control', 'placeholder':'Téléphone'}}) }}
+                                        {% for errorItem in registration_form.Phone.vars.errors %}
+                                            <span class="help-inline">{{ errorItem.message }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions"></div>
+                                 <button id="register-submit-btn" type="submit" class="btn btn-success">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{ form_rest(registration_form)}}
+{{ form_end(registration_form) }}
