@@ -6,11 +6,11 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -100,9 +100,20 @@ easy_admin:
         brand_color: '#f0c34f'
     entities:
         'Voitures':
-              class: KZC\KZCBundle\Entity\ListVoitures
-              list:
-                    title: "Nos voitures"
+                             class: KZC\KZCBundle\Entity\Voitures
+                             list:
+                                   title: "Nos voitures"
+                             new:
+                                   fields:
+                                           - { property: 'marque' }
+                                           - { property : 'carburant' }
+
+        'Carburant':
+                      class: KZC\KZCBundle\Entity\Carburant
+                      disabled_actions: ['edit']
+                      list:
+                            title: "Les carburants"
+
 
         'Users':
               class: KZC\UsersBundle\Entity\Users
