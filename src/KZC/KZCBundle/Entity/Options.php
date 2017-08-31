@@ -62,5 +62,11 @@ class Options
     {
         return $this->nom;
     }
+
+    public function __toString()
+    {
+        return $this->nom;
+
+    }
 }
 

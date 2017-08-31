@@ -28,14 +28,6 @@ class Modele
      */
     private $nom;
 
-    /**
-     *
-     * @ORM\OneToOne(targetEntity="KZC\KZCBundle\Entity\Annee", cascade={"persist"})
-     * @ORM\Column(name="Annee", type="string")
-     *
-     */
-
-    private $annee;
 
 
 
@@ -73,20 +65,10 @@ class Modele
         return $this->nom;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAnnee()
+    public function __toString()
     {
-        return $this->annee;
-    }
+        return $this->nom;
 
-    /**
-     * @param mixed $annee
-     */
-    public function setAnnee($annee)
-    {
-        $this->annee = $annee;
     }
 
 

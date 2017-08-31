@@ -30,8 +30,7 @@ class Marques
 
     /**
      *
-     * @ORM\OneToOne(targetEntity="KZC\KZCBundle\Entity\Modele", cascade={"persist"})
-     * @ORM\Column(name="modele", type="string")
+     * @ORM\ManyToOne(targetEntity="KZC\KZCBundle\Entity\Modele", cascade={"persist"})
      *
      */
 
@@ -86,6 +85,13 @@ class Marques
     public function setModele($modele)
     {
         $this->modele = $modele;
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
+        return $this->modele;
+
     }
 
 

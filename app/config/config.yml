@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    app.path.images: /uploads/images/voitures
 
 framework:
     #esi: ~
@@ -100,19 +101,55 @@ easy_admin:
         brand_color: '#f0c34f'
     entities:
         'Voitures':
-                             class: KZC\KZCBundle\Entity\Voitures
-                             list:
-                                   title: "Nos voitures"
-                             new:
-                                   fields:
-                                           - { property: 'marque' }
-                                           - { property : 'carburant' }
+                       class: KZC\KZCBundle\Entity\Voitures
+                       list:
+                            title: "Nos voitures"
+                            fields:
+                                   - { property: 'marque' }
+                                   - { property: 'marque.modele'}
 
-        'Carburant':
+                                   - { property: 'carburant' }
+                                   - { property: 'annee' }
+                                   - { property: 'options' }
+                                   - { property: 'prix'}
+                                   - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+                       show:
+                            fields:
+                                   - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+                       form:
+                            fields:
+                                   - { property: 'marque' }
+
+
+                                   - { property: 'carburant' }
+                                   - { property: 'annee' }
+                                   - { property: 'options' }
+                                   - { property: 'prix'}
+                                   - { property: 'imageFile', type: 'file' }
+
+        'Carburants':
                       class: KZC\KZCBundle\Entity\Carburant
                       disabled_actions: ['edit']
                       list:
                             title: "Les carburants"
+
+        'Marques':
+                      class: KZC\KZCBundle\Entity\Marques
+                      list:
+                            title: "Les marques"
+
+
+        'Modeles':
+                      class: KZC\KZCBundle\Entity\Modele
+                      list:
+                            title: "Les modèles"
+
+
+
+        'Options':
+                      class: KZC\KZCBundle\Entity\Options
+                      list:
+                            title: "Les options"
 
 
         'Users':
@@ -131,3 +168,10 @@ easy_admin:
                         - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
 
 
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+            images:
+                uri_prefix:         '%app.path.images%'
+                upload_destination: '%kernel.root_dir%/../web/uploads/images/voitures'
