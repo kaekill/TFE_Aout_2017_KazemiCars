@@ -100,6 +100,12 @@ class Voitures
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $description;
+
 
     /**
      * Get id
@@ -237,6 +243,22 @@ class Voitures
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
 

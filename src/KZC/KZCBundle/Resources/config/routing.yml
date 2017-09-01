@@ -21,3 +21,20 @@ kzc_evaluate:
 kzc_homepage2:
     path: /home
     defaults: {_controller: KZCBundle:Home:index}
+
+kzc_getVoiture:
+    path: /voitures
+    defaults: {_controller: KZCBundle:Home:getVoiture}
+
+kzc_voiture_get_modele:
+    path: /admin/getmodele/{id}
+    defaults: {_controller: KZCBundle:Voitures:getmodele}
+    requirements:
+          id: \d+
+
+kzc_display_voiture:
+    path: /voitures/{id}
+    defaults: {_controller: KZCBundle:Voitures:show}
+    requirements:
+              id: \d+
+

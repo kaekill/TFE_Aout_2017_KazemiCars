@@ -107,7 +107,6 @@ easy_admin:
                             fields:
                                    - { property: 'marque' }
                                    - { property: 'marque.modele'}
-
                                    - { property: 'carburant' }
                                    - { property: 'annee' }
                                    - { property: 'options' }
@@ -119,13 +118,12 @@ easy_admin:
                        form:
                             fields:
                                    - { property: 'marque' }
-
-
                                    - { property: 'carburant' }
                                    - { property: 'annee' }
                                    - { property: 'options' }
                                    - { property: 'prix'}
                                    - { property: 'imageFile', type: 'file' }
+                                   - { property: 'description', type: 'ckeditor' }
 
         'Carburants':
                       class: KZC\KZCBundle\Entity\Carburant
@@ -156,7 +154,7 @@ easy_admin:
               class: KZC\UsersBundle\Entity\Users
               list:
                     title: "Nos Clients"
-                    fields: ['id', 'FirstName', 'LastName', 'Adress', 'Number', 'Phone', 'Email' ]
+                    fields: ['FirstName', 'LastName', 'Adress', 'Number', 'Ville', 'Phone', 'Email' ]
               form:
                     fields:
                         - username
@@ -175,3 +173,7 @@ vich_uploader:
             images:
                 uri_prefix:         '%app.path.images%'
                 upload_destination: '%kernel.root_dir%/../web/uploads/images/voitures'
+
+ivory_ck_editor:
+    input_sync: true
+    default_config: base_config
