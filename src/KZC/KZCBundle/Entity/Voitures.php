@@ -47,6 +47,15 @@ class Voitures
 
     /**
      *
+     * @ORM\Column(name="km", type="integer")
+     * @var int
+     *
+     */
+
+    private $km;
+
+    /**
+     *
      * @ORM\Column(name="prix", type="integer")
      *
      */
@@ -150,6 +159,26 @@ class Voitures
     {
         $this->carburant = $carburant;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getKm()
+    {
+        return $this->km;
+    }
+
+    /**
+     * @param mixed $km
+     */
+    public function setKm($km)
+    {
+        $this->km = $km;
+    }
+
+
+
+
 
     /**
      * @return mixed

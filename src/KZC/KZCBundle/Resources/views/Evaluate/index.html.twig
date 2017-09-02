@@ -1,7 +1,116 @@
 {%extends "::base.html.twig"%}
 
 {% block body %}
-    <div>
-        Evaluate
-    </div>
+    <div class="container">
+        <form class="form-horizontal evaluate" role="form">
+            <h2>Evaluez votre voiture</h2>
+            <div class="form-group">
+                <label for="firstName" class="col-sm-3 control-label">Prénom</label>
+                <div class="col-sm-9">
+                    <input type="text" id="firstName"  class="form-control" autofocus value="{{ app.user.FirstName }}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="LastName" class="col-sm-3 control-label">Nom</label>
+                <div class="col-sm-9">
+                    <input type="text" id="LastName" class="form-control" autofocus value="{{ app.user.LastName }}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" id="email" placeholder="Email" class="form-control" value="{{ app.user.email }}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Phone" class="col-sm-3 control-label">Téléphone</label>
+                <div class="col-sm-9">
+                    <input type="text" id="Phone"  class="form-control" autofocus value="{{ app.user.Phone }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="constructeur" class="col-sm-3 control-label">Constructeur</label>
+                <div class="col-sm-9">
+                    <select id="constructeur" class="form-control">
+                        <option>Audi</option>
+                        <option>BMW</option>
+                        <option>Citröen</option>
+                        <option>Fiat</option>
+                        <option>Huyndai</option>
+                        <option>Mercedes</option>
+                        <option>Mini</option>
+                        <option>Peugeot</option>
+                        <option>Renault</option>
+                        <option>Smart</option>
+                        <option>Toyota</option>
+                        <option>Volkswagen</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Modele" class="col-sm-3 control-label">Modèle</label>
+                <div class="col-sm-9">
+                    <select id="Modele" class="form-control">
+                        <option>Audi</option>
+                        <option>BMW</option>
+                        <option>Citröen</option>
+                        <option>Fiat</option>
+                        <option>Huyndai</option>
+                        <option>Mercedes</option>
+                        <option>Mini</option>
+                        <option>Peugeot</option>
+                        <option>Renault</option>
+                        <option>Smart</option>
+                        <option>Toyota</option>
+                        <option>Volkswagen</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="carburant" class="col-sm-3 control-label">Carburant</label>
+                <div class="col-sm-9">
+                    <select id="carburant" class="form-control">
+                        {% for carburant in carburants %}
+                            <option>{{ carburant.nom }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="firstName" class="col-sm-3 control-label">Kilométrages</label>
+                <div class="col-sm-9">
+                    <input type="number" id="km"  class="form-control" autofocus>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3">Options</label>
+                <div class="col-sm-9">
+                {% for options in Option %}
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="calorieCheckbox" value="{{ options.nom }}">{{ options.nom }}
+                        </label>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="exampleInputFile">Pièce jointe</label>
+                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3">Commentaires</label>
+                <div class="col-sm-9">
+                            <label>
+                                <textarea class="form-control" id="evaluate-txt-area" placeholder="Saissisez un commentaire"></textarea>
+                            </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <button type="submit" class="btn btn-primary btn-block">Evaluez</button>
+                </div>
+            </div>
+        </form> <!-- /form -->
+    </div> <!-- ./container -->
 {% endblock %}

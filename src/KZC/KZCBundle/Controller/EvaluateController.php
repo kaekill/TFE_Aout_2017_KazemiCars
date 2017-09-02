@@ -16,6 +16,15 @@ class EvaluateController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('KZCBundle:Evaluate:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('KZCBundle:Options');
+        $em2 = $this->getDoctrine()->getManager();
+        $repository2 = $em2->getRepository('KZCBundle:Carburant');
+        $options = $repository->findAll();
+        $carburant = $repository2->findAll();
+        return $this->render('KZCBundle:Evaluate:index.html.twig',array(
+            'Option' => $options,
+            'carburants' => $carburant,
+        ));
     }
 }

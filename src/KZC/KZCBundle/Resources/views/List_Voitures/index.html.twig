@@ -1,7 +1,46 @@
 {%extends "::base.html.twig"%}
 
 {% block body %}
-    <div>
-        List Voitures
+    <div class="container">
+        <div class="row">
+            <div style="margin-bottom: 50px;">
+                <h2 style="text-align: center;">Nos voitures:</h2>
+                <p class="text-center sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+        </div>
     </div>
+    {% for voiture in Voitures  %}
+        <div class="container">
+            <div class="row">
+                <div class="well">
+                    <div class="media">
+                        <div class="col-lg-2 col-md-2 col-sm-2">
+                                <img class="card-img-top" src="/KZC/web/uploads/images/voitures/{{ voiture.image }}">
+                        </div>
+                        <div class="col-lg-8 col-sm-8 col-md-8">
+                            <div class="row">
+                                <span><h3>{{ voiture.marque }}</h3></span> <span><h5>{{ voiture.modele }}</h5></span>
+                            </div>
+
+                            <div class="row">
+                                <p>{{ voiture.description | raw }}</p>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <span><i class="fa fa-car" aria-hidden="true"></i> {{ voiture.km }} km</span> <span><i class="fa fa-calendar" aria-hidden="true"></i> {{ voiture.annee }}</span> <span><i class="fa fa-mobile" aria-hidden="true"></i> 0484/02.00.00</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2">
+                            <div class="row">
+                                <div class="prix" style="font-size: 2em; text-align: center; margin-bottom: 30px; margin-top: 30px; ">{{ voiture.prix }} €</div>
+                            </div>
+                            <div class="row">
+                                <a href="{{ path('kzc_display_voiture', {'id':voiture.id}) }}" style="color: white;"><button class="btn btn-lg btn-block" style="background-color: #f0c34f;">Voir</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

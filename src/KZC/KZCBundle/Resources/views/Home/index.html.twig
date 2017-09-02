@@ -61,27 +61,38 @@
 
     <hr>
 
-    <div class="container">
-        <h2 style="margin-bottom: 30px;">Nos dernières voitures:</h2>
-        <div class="row">
+    <div class="last-cars">
+        <div class="container">
+            <h2>Nos dernières voitures:</h2>
+            <div class="row">
 
-            {% for voiture in Voitures  %}
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-                    <div class="card">
-                        <img class="card-img-top" src="/KZC/web/uploads/images/voitures/{{ voiture.image }}">
-                        <div class="card-block">
-                            <h4 class="card-title mt-3">{{ voiture.marque }}</h4>
-                            <div class="card-text">
+                {% for voiture in Voitures  %}
+                    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="card-img-top" src="/KZC/web/uploads/images/voitures/{{ voiture.image }}">
+                            </div>
+                            <div class="card-block">
+                                <span class="card-title mt-3">{{ voiture.marque }}</span>
+                                <span class="card-title mt-3">{{ voiture.modele }}</span>
+                                <div class="card-text ">
+                                    <p class="card-prix"> {{ voiture.prix  }} €</p>
+                                    <p class="card-center">
+                                        <span class="km"><i class="fa fa-road" aria-hidden="true"></i> {{ voiture.km  }} </span>
+                                        <span class="year"><i class="fa fa-calendar" aria-hidden="true"></i> {{ voiture.annee }} </span>
+                                    </p>
 
-                                 {{ voiture.description | raw }}
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-center">
+                                    <a class="btn btn-primary" href="{{ path('kzc_display_voiture', {'id':voiture.id}) }}" >Voir</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <a href="{{ path('kzc_display_voiture', {'id':voiture.id}) }} " class="btn btn-secondary float-right btn-sm">show</a>
-                        </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 

@@ -109,16 +109,19 @@ easy_admin:
                                    - { property: 'marque.modele'}
                                    - { property: 'carburant' }
                                    - { property: 'annee' }
+                                   - { property: 'km' }
                                    - { property: 'options' }
                                    - { property: 'prix'}
-                                   - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+                                   - { property: 'image', type: 'image', base_path: '/web/%app.path.images%' }
                        show:
                             fields:
                                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
                        form:
                             fields:
                                    - { property: 'marque' }
+                                   - { property: 'modele'}
                                    - { property: 'carburant' }
+                                   - { property: 'km' }
                                    - { property: 'annee' }
                                    - { property: 'options' }
                                    - { property: 'prix'}

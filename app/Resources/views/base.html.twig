@@ -4,71 +4,155 @@
         <meta charset="UTF-8" />
         <title>{% block title %}KazemiCars{% endblock %}</title>
         {% block stylesheets %}
-          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"><link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+          <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css"/>
           <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% endblock %}
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script src="../js/script.js"></script>
         <link rel="icon" type="image/x-icon" href="{{ asset('img/KZC.png') }}" />
-
-
     </head>
     <body>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-
             {% if is_granted('ROLE_ADMIN') %}
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand" href="#">Kazemicars</a>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ 'home' }}">Home</a></li>
-                    <li><a href="{{'about'}}">A propos</a></li>
-                    <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
-                    <li><a href="{{'admin'}}">Dashboard</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a style="color: white;"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
-                    <li><a href="{{path('fos_user_security_logout')}}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                </ul>
+                <div class="collapse navbar-collapse ">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ 'home' }}">Home</a></li>
+                        <li><a href="{{'about'}}">A propos</a></li>
+                        <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
+                        <li><a href="{{'admin'}}">Dashboard</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a style="color: white;"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+                        <li><a href="{{path('fos_user_security_logout')}}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+                </div>
             {% elseif app.user %}
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand" href="#">Kazemicars</a>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ 'home' }}">Home</a></li>
-                    <li><a href="{{'about'}}">A propos</a></li>
-                    <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
-                    <li><a href="{{'evaluate'}}">Evaluez votre voiture</a></li>
-                    <li><a href="{{'contact'}}">Contact</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a style="color: white;"><span class="glyphicon glyphicon-user"></span> {{ app.user.Username }}</a></li>
-                    <li><a href="{{path('fos_user_security_logout')}}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                </ul>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ 'home' }}">Home</a></li>
+                        <li><a href="{{'about'}}">A propos</a></li>
+                        <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
+                        <li><a href="{{'evaluate'}}">Evaluez votre voiture</a></li>
+                        <li><a href="{{'contact'}}">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a style="color: white;"><span class="glyphicon glyphicon-user"></span> {{ app.user.Username }}</a></li>
+                        <li><a href="{{path('fos_user_security_logout')}}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+                </div>
             {% else %}
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand" href="#">Kazemicars</a>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ 'home' }}">Home</a></li>
-                    <li><a href="{{'about'}}">A propos</a></li>
-                    <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
-                    <li><a href="{{'contact'}}">Contact</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{'register'}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="{{'login'}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ 'home' }}">Home</a></li>
+                        <li><a href="{{'about'}}">A propos</a></li>
+                        <li><a href="{{'list_voitures'}}">Nos voitures</a></li>
+                        <li><a href="{{'contact'}}">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{'register'}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="{{'login'}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
             {% endif %}
         </div>
       </nav>
+
+      <nav  style="display: none" class="navbar navbar-default">
+          <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Brand</a>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                      <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                      <li><a href="#">Link</a></li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">Action</a></li>
+                              <li><a href="#">Another action</a></li>
+                              <li><a href="#">Something else here</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Separated link</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">One more separated link</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <form class="navbar-form navbar-left">
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search">
+                      </div>
+                      <button type="submit" class="btn btn-default">Submit</button>
+                  </form>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#">Link</a></li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#">Action</a></li>
+                              <li><a href="#">Another action</a></li>
+                              <li><a href="#">Something else here</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Separated link</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+      </nav>
+
       <div class="container-fluid img_header" >
 
-        <img src="{{ asset('img/KZC.png') }}" class="img-responsive center-block">
+        <img src="{{ asset('img/KZC.png') }}" class="img-header center-block">
       </div>
 
         {% block body %}
         {% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+
+        {% endblock %}
 
 
       <!--footer start from here-->

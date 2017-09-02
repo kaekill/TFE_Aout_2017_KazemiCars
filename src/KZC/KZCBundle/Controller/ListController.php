@@ -18,6 +18,11 @@ class ListController extends Controller
 
     public function indexAction()
     {
-        return $this->render('KZCBundle:List_Voitures:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('KZCBundle:Voitures');
+        $voitures = $repository->findAll();
+        return $this->render('KZCBundle:List_Voitures:index.html.twig',array(
+            'Voitures' => $voitures,
+        ));
     }
 }
