@@ -112,7 +112,7 @@ easy_admin:
                                    - { property: 'km' }
                                    - { property: 'options' }
                                    - { property: 'prix'}
-                                   - { property: 'image', type: 'image', base_path: '/web/%app.path.images%' }
+                                   - { property: 'image', type: 'image', base_path: '/KZC/web%app.path.images%' }
                        show:
                             fields:
                                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
@@ -127,6 +127,8 @@ easy_admin:
                                    - { property: 'prix'}
                                    - { property: 'imageFile', type: 'file' }
                                    - { property: 'description', type: 'ckeditor' }
+
+
 
         'Carburants':
                       class: KZC\KZCBundle\Entity\Carburant

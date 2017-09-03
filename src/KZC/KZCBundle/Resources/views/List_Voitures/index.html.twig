@@ -4,43 +4,43 @@
     <div class="container">
         <div class="row">
             <div style="margin-bottom: 50px;">
-                <h2 style="text-align: center;">Nos voitures:</h2>
-                <p class="text-center sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <h2 style="text-align: center;" class="text-primary title">Nos voitures:</h2>
+                <p class="text-center sub-title">Toutes nos voitures sont garanties 1 an et certifié avec le CarPass</p>
             </div>
         </div>
     </div>
-    {% for voiture in Voitures  %}
-        <div class="container">
+    <div class="last-cars">
+        <div class="container-fluid">
             <div class="row">
-                <div class="well">
-                    <div class="media">
-                        <div class="col-lg-2 col-md-2 col-sm-2">
+                {% for voiture in Voitures  %}
+                    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                        <div class="card">
+                            <div class="card-image">
                                 <img class="card-img-top" src="/KZC/web/uploads/images/voitures/{{ voiture.image }}">
-                        </div>
-                        <div class="col-lg-8 col-sm-8 col-md-8">
-                            <div class="row">
-                                <span><h3>{{ voiture.marque }}</h3></span> <span><h5>{{ voiture.modele }}</h5></span>
                             </div>
+                            <div class="card-block">
+                                <span class="card-title mt-3">{{ voiture.marque }}</span>
+                                <span class="card-title mt-3">{{ voiture.modele }}</span>
+                                <div class="card-text ">
+                                    <p>{{ voiture.description | raw}}</p>
+                                    <p class="card-prix"> {{ voiture.prix  }} €</p>
+                                    <p class="card-center">
+                                        <span class="km"><i class="fa fa-road" aria-hidden="true"></i> {{ voiture.km  }} </span>
+                                        <span class="year"><i class="fa fa-calendar" aria-hidden="true"></i> {{ voiture.annee }} </span>
+                                    </p>
 
-                            <div class="row">
-                                <p>{{ voiture.description | raw }}</p>
+                                </div>
                             </div>
-                            <hr>
-                            <div class="row">
-                                <span><i class="fa fa-car" aria-hidden="true"></i> {{ voiture.km }} km</span> <span><i class="fa fa-calendar" aria-hidden="true"></i> {{ voiture.annee }}</span> <span><i class="fa fa-mobile" aria-hidden="true"></i> 0484/02.00.00</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2">
-                            <div class="row">
-                                <div class="prix" style="font-size: 2em; text-align: center; margin-bottom: 30px; margin-top: 30px; ">{{ voiture.prix }} €</div>
-                            </div>
-                            <div class="row">
-                                <a href="{{ path('kzc_display_voiture', {'id':voiture.id}) }}" style="color: white;"><button class="btn btn-lg btn-block" style="background-color: #f0c34f;">Voir</button></a>
+                            <div class="card-footer">
+                                <div class="text-center">
+                                    <a class="btn btn-primary" href="{{ path('kzc_display_voiture', {'id':voiture.id}) }}" >Voir</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    {% endfor %}
             </div>
         </div>
-    {% endfor %}
+    </div>
+
 {% endblock %}

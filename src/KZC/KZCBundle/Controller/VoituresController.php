@@ -23,15 +23,17 @@ class VoituresController extends Controller
 
 
 
-    public function showAction(Request $request, $id){
+    public function showAction($id){
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('KZCBundle:Voitures');
-        $voitures = $repository->findAll();
-
-        return $this->render("KZCBundle:Voitures:index.html.twig", array(
+        $voitures = $repository->findOneById($id);
+        return $this->render('KZCBundle:Voitures:index.html.twig',array(
+            'Option' => $voitures->getOptions(),
             'Voitures' => $voitures,
         ));
     }
+
+
 
 
 

@@ -23,6 +23,7 @@
 
 .last-cars {
     background: #eee;
+    padding-top: 30px;
 }
 
 .last-cars .card {
@@ -69,6 +70,10 @@ p.card-prix{
 }
 .nav>li>a:hover{
     background: rgba(255,255,255,0.1);
+}
+
+#voiture_detail{
+    margin-top: 30px;
 }
 /*============ Buttons ============*/
 
@@ -354,20 +359,7 @@ h5 {
 .section-header {
     margin-bottom: 30px;
 }
-.section-header h2 {
-    font-size: 22px;
-    font-weight: 500;
-    margin: 20px auto 5px;
-    text-align: center;
-    text-transform: uppercase;
-}
-.section-header h6 {
-    color: #999;
-    font-size: 12px;
-    font-weight: 300;
-    text-align: center;
-    text-transform: uppercase;
-}
+
 .feature {
     box-shadow: 3px 3px 4px -3px #ececec;
     margin-bottom: 50px;
@@ -398,6 +390,42 @@ a.list-group-item {
 a.list-group-item.active small {
     color:#fff;
 }
-.stars {
-    margin:20px auto 1px;
+
+
+/*----------------------
+Product Card Styles
+----------------------*/
+.panel.panel--styled {
+    background: #F4F2F3;
 }
+.panelTop {
+    padding: 30px;
+}
+
+.panelBottom {
+    border-top: 1px solid #e7e7e7;
+    padding-top: 20px;
+}
+.btn-add-to-cart {
+    background: #f0c34f;
+    color: #fff;
+}
+.btn.btn-add-to-cart.focus, .btn.btn-add-to-cart:focus, .btn.btn-add-to-cart:hover  {
+    color: #fff;
+    background: #f0ad4e;
+    outline: none;
+}
+.btn-add-to-cart:active {
+    background: #c87f0a;
+    outline: none;
+}
+
+
+span.itemPrice {
+    font-size: 24px;
+    color: #f0c34f;
+}
+
+
+
+
