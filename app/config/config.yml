@@ -20,7 +20,7 @@ framework:
     csrf_protection:
       enabled: true
     validation: { enable_annotations: true }
-    #serializer: { enable_annotations: true }
+    
     templating:
         engines: ['twig']
     default_locale: '%locale%'
@@ -65,6 +65,8 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
+    auth_mode: '%mailer_auth_mode%'
+    port: '%mailer_port%'
     host: '%mailer_host%'
     username: '%mailer_user%'
     password: '%mailer_password%'
@@ -77,21 +79,21 @@ fos_user:
     service:
             mailer: fos_user.mailer.twig_swift
     registration:
-        form:
-            type: KZC\UsersBundle\Form\UsersType
         confirmation:
-            enabled: false
+             enabled: true
+             template: UsersBundle:Registration:email.txt.twig
+        form:
+             type: KZC\UsersBundle\Form\UsersType
+
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
     service:
         mailer: fos_user.mailer.twig_swift
-    # resetting:
-    #     email:
-    #         template: '@GestionKine/Resetting/email.txt.twig'
-    # registration:
-    #     confirmation:
-    #         template:   '@FOSUser/Registration/email.txt.twig'
+
+    resetting:
+        email:
+          template: email/password_resetting.email.twig
 
 
 easy_admin:
